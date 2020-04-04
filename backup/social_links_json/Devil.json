@@ -1,0 +1,84 @@
+{
+    "arcana": "Devil",
+    "name": "President Tanaka",
+    "description": "Only optional social link that will automatically rank up just by talking to him.",
+    "requires": {
+        "brief": "Talk with Lv4 Hermit to discover about a man on Pallownia Mall at night",
+        "status": {
+            "academics": 1,
+            "charm": 4,
+            "courage": 1
+        },
+        "money": 10000
+    },
+    "foundAt": {"Evening": ["Tuesday", "Saturday"]},
+    "firstAvaliableOn": 
+        null,
+        "isAutomatic": true,
+        "ranks": [
+            {
+                "id": 1,
+                "description": "Anything",
+                "date": null
+            },
+            {
+                "id": 2,
+                "description": "Anything",
+                "date": null
+            },
+            {
+                "id": 3,
+                "description": "Anything",
+                "date": null
+            },
+            {
+                "id": 4,
+                "description": "Anything",
+                "date": null
+            },
+            {
+                "id": 5,
+                "description": "Anything",
+                "date": null
+            },
+            {
+                "id": 6,
+                "description": "Anything",
+                "date": null
+            },
+            {
+                "id": 7,
+                "description": "Anything",
+                "date": null
+            },
+            {
+                "id": 8,
+                "description": "Anything",
+                "date": null
+            },
+            {
+                "id": 9,
+                "description": "Anything",
+                "date": null
+            },
+            {
+                "id": 10,
+                "description": "Anything",
+                "date": null
+            }
+        ],
+        "unlocks": {
+            "persona": "Beelzebub",
+            "fusion": {
+                "type": "Hexagon",
+                "personas": [
+                    "Baal Zebul",
+                    "Abaddon",
+                    "Lilith",
+                    "Pazuzu",
+                    "Succubus",
+                    "Incubus"
+                ]
+            }
+        }
+    }

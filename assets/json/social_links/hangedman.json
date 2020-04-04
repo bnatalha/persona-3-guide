@@ -1,0 +1,18 @@
+{
+    "arcana": "Hanged Man",
+    "name": "Maiko",
+    "description": "To start this social link you must have a Mad Bull and Takoyaki in your inventory, you can get Mad Bull from vending machines (There's one in the dorm for sure) and Takoyaki from Octopia. First available on July 10, afterwards on Monday - Saturday but, not on holidays. She's located at the shrine on the playground",
+    "ranks": [
+        "Rank 1: Automatic",
+        "Rank 2: Sure, Let's go > Anything x2",
+        "Rank 3: Anything > Don't worry, he'll be there",
+        "Rank 4: I'm happy for you/Nobody could forget you",
+        "Rank 5: That's terrible > That isn't true",
+        "Rank 6: Calm down/Sounds like a plan > You don't need that stuff",
+        "Rank 7: Anything x2",
+        "Rank 8: Hamburgers > Yeah, you did good > Choose your dad",
+        "Rank 9: We're friends forever",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For completing this social link you're able to fuse Attis through Pentagon fusion using Ubelluris, Vasuki, Orthus, Take-minakata and Inugami."
+}

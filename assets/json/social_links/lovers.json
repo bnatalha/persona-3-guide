@@ -1,0 +1,18 @@
+{
+    "arcana": "Lovers",
+    "name": "Yukari",
+    "description": "Requires max Charm in order to start this social link. First available on July 25th afterwards on Monday, Wednesday, Thursday and Saturday. She's located in your classroom.",
+    "ranks": [
+        "Rank 1: Automatic",
+        "Rank 2: Say \"Pink's cute\" > That's messed up",
+        "Rank 3: Say anything",
+        "Rank 4: Ask \"Are you all right?\"",
+        "Rank 5: Say anything x3 > Try to cheer her up",
+        "Rank 6: Say \"Anytime\"",
+        "Rank 7: Say \"Sounds good\"",
+        "Rank 8: Say \"All right\" > Anything",
+        "Rank 9: \"..........\"",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For completing this social link you are able to fuse Cybele through Normal or Triangle fusion."
+}

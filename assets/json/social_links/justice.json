@@ -1,0 +1,18 @@
+{
+    "arcana": "Justice",
+    "name": "Chihiro",
+    "description": "This social link requires that you talk to Chihiro three times, who is next to the student council room, with one correct response for each time, these answers are: I want to talk > I'm male > Hello then Let's walk home together. I recommend doing these on May 7, 23 and 26. 1st rank can be started on May 28, afterwards on Tuesday, Thursday and Saturday. She's located next to the student council room",
+    "ranks": [
+        "Rank 1: Automatic after the three flags have been activated",
+        "Rank 2: Don't worry about it > I read the classics/I read manga > Not really",
+        "Rank 3: How rude > I agree",
+        "Rank 4: Anything > Speak to her calmly",
+        "Rank 5: So, how was it? > It's just a coincidence > Don't be so hard on yourself > Hold her hand",
+        "Rank 6: Is it good > What do you mean?",
+        "Rank 7: You're not to blame > We have to do something ",
+        "Rank 8: Anything > Talk to the teacher",
+        "Rank 9: Don't worry, she'll help us > Wait and see what happens > Anything > What's wrong",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For maxing out this social link you are able to fuse Melchizedek through normal or triangle fusion."
+}

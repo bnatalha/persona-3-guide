@@ -1,0 +1,18 @@
+{
+    "arcana": "Priestess",
+    "name": "Fuuka",
+    "description": "Requires max courage in order to start this social link. First available on June 19th, afterwards on Monday, Friday, Saturday. She's located next to the stairs leading to the main hallway.",
+    "ranks": [
+        "Rank 1: Automatic",
+        "Rank 2: Say \"Sure\"",
+        "Rank 3: Say \"I believe in you\" > Anything",
+        "Rank 4: Say anything > Oh, I don't think so",
+        "Rank 5: Say \"You did a great job\" > Anything",
+        "Rank 6: Say \"Okay\"",
+        "Rank 7: Say anything > Anything",
+        "Rank 8: Say anything > I want to be with you too",
+        "Rank 9: Say anything > Anything",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For maxing out Fuuka's social link you're able to fuse Scathach through normal or triangle fusion"
+}

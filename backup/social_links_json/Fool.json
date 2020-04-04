@@ -1,0 +1,73 @@
+{
+    "arcana": "Fool",
+    "name": "SEES",
+    "description": "This is one of the three social links that rank up during the main story",
+    "requires": null,
+    "isAutomatic": true,
+    "ranks": [
+        {
+            "id": 1,
+            "description": "Automatic on April 18th",
+            "date": "2009-04-18"
+        },
+        {
+            "id": 2,
+            "description": "Automatic on April 20th",
+            "date": "2009-04-20"
+        },
+        {
+            "id": 3,
+            "description": "Automatic on May 9th",
+            "date": "2009-05-09"
+        },
+        {
+            "id": 4,
+            "description": "Automatic on July 7th",
+            "date": "2009-07-07"
+        },
+        {
+            "id": 5,
+            "description": "Automatic on July 22nd",
+            "date": "2009-07-22"
+        },
+        {
+            "id": 6,
+            "description": "Automatic on November 2nd",
+            "date": "2009-11-02"
+        },
+        {
+            "id": 7,
+            "description": "Automatic on November 4th",
+            "date": "2009-11-04"
+        },
+        {
+            "id": 8,
+            "description": "Skips to Rank 9",
+            "date": null
+        },
+        {
+            "id": 9,
+            "description": "Automatic on November 28th",
+            "date": "2009-11-28"
+        },
+        {
+            "id": 10,
+            "description": "Choose to spare Ryoji on December 31st",
+            "date": "2009-12-31"
+        }
+    ],
+    "unlocks": {
+        "persona": "Susano-o",
+        "fusion": {
+            "type": "hexagon",
+            "personas": [
+                "Loki",
+                "Decarabia",
+                "Ose",
+                "Black Frost",
+                "Legion",
+                "Orpheus"
+            ]
+        }
+    }
+}

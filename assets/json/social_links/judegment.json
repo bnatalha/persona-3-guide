@@ -1,0 +1,18 @@
+{
+    "arcana": "Judgement",
+    "name": "Nyx Annihilation Team",
+    "description": "This is the final social link that will rank up with the story, unless you got the bad ending.",
+    "ranks": [
+        "Rank 1: Automatic",
+        "Rank 2: Reach floor 215 of Tartarus",
+        "Rank 3: Reach floor 220 of Tartarus and defeat Noble Seeker (Resists 4 elements)",
+        "Rank 4: Reach floor 224 of Tartarus",
+        "Rank 5: Reach floor 228 of Tartarus and defeat Carnal Snake (Resist Fire, Elec and Wind) ",
+        "Rank 6: Reach floor 236 of Tartarus and defeat World Balance (Resist Physical)",
+        "Rank 7: Reach floor 240 of Tartarus",
+        "Rank 8: Reach floor 244 of Tartarus and defeat Fierce Cyclops (Blocks Elec, Resists Slash, Strike and Fire)",
+        "Rank 9: Reach floor 252 of Tartarus and defeat the Jotun of Grief (Use only pierce melee weapons)",
+        "Rank 10: Reach floor 254 of Tartarus"
+    ],
+    "unlocks": "For finishing this social link you are able to fuse Messiah using Thanatos and Orpheus."
+}

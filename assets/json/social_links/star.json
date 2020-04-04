@@ -1,0 +1,18 @@
+{
+    "arcana": "Star",
+    "name": "Mamoru",
+    "description": "This social link requires LV.4 courage in order to start. Mamoru is located just outside Bookworms on a bench. He's available on Monday-Sunday, after rank 9 only on school days.",
+    "ranks": [
+        "Rank 1: Automatic",
+        "Rank 2: Yeah, no problem",
+        "Rank 3: Anything x2",
+        "Rank 4: Anything > Sounds like a good plan > Yeah, I bet she would be",
+        "Rank 5: Are you ok? > We should come here again",
+        "Rank 6: Anything x3 > Hey, no problem",
+        "Rank 7: I don't mind > Anything x2 > Don't give up!",
+        "Rank 8: You should get some more > Anything",
+        "Rank 9: And you won? > Do a victory celebration > Anything > Thank him for his generosity",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For completing this social link you are able to fuse Helel, who know the unique spell Morning Star,  through normal or triangle fusion. In the original persona 3 you are able to fuse Lucifer who also has Morning Star and can be fused through normal or triangle fusion."
+}

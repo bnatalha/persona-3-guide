@@ -1,0 +1,18 @@
+{
+    "arcana": "Temperance",
+    "name": "Bebe",
+    "description": "Requires LV.2 Knowledge to start this social link. First available on May 29, afterwards on Tuesday, Wednesday and Friday. He's located in the Home Ec. room on the first floor.",
+    "ranks": [
+        "Rank 1: Automatic",
+        "Rank 2: Anything > Yeah, Japan is great",
+        "Rank 3: Anything > Something traditional (Temperance Persona Required)",
+        "Rank 4: Are you alright? > Anything",
+        "Rank 5: Sure > Then stay",
+        "Rank 6: Take a break > Let's go > Support him",
+        "Rank 7: That's a good idea",
+        "Rank 8: He'll agree for sure",
+        "Rank 9: Ask about his country",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For completing this social link you are able to fuse Yurlungur through normal or triangle fusion.  "
+}

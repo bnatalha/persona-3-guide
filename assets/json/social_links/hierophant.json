@@ -1,0 +1,18 @@
+{
+    "arcana": "Hierophant",
+    "name": "Bunkichi and Mitsuko",
+    "description": "Requires you to have a leaf from a tree in the yard next to the gym at school. First available on April 25 on Monday-Saturday. They're located at bookworms in Iwatodai Station.",
+    "ranks": [
+        "Rank 1: Automatic",
+        "Rank 2: Tell him > Thanks > Anything x3",
+        "Rank 3: Say \"Looking for something?\" > I'll help you look > Anything x3",
+        "Rank 4: Anything x2 > Now, you have me worried",
+        "Rank 5: Say \"I'll root out the truth!\" > Anything",
+        "Rank 6: Say \"Please stop quarrelling\" > Anything",
+        "Rank 7: Ask why she's crying > That's great > Anything",
+        "Rank 8: Anything x3",
+        "Rank 9: Anything x2",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For completing this social link you are able to fuse Kohryu through Cross fusion using Byakko, Suzaku, Seiryuu and Genbu."
+}

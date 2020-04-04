@@ -1,0 +1,18 @@
+{
+    "arcana": "Fool",
+    "name": "SEES",
+    "description": "This is one of the three social links that rank up during the main story",
+    "ranks": [
+        "Rank 1: Automatic on April 18th",
+        "Rank 2: Automatic on April 20th",
+        "Rank 3: Automatic on May 9th ",
+        "Rank 4: Automatic on July 7th ",
+        "Rank 5: Automatic on July 22nd",
+        "Rank 6: Automatic on November 2nd",
+        "Rank 7: Automatic on November 4th",
+        "Rank 8: Skips to Rank 9",
+        "Rank 9: Automatic on November 28th",
+        "Rank 10: Choose to spare Ryoji on December 31st"
+    ],
+    "unlocks": "The persona you can fuse after finishing this social link is Susano-o in a hexagon fusion using Loki, Decarabia, Ose, Black Frost, Legion and Orpheus."
+}

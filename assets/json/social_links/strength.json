@@ -1,0 +1,18 @@
+{
+    "arcana": "Strength",
+    "name": "Yuko",
+    "description": "After rank 2 of the Chariot social link you will meet Yuko and you need to activate a flag by Inviting her to walk home with you. After you start her social link she's available on Wednesday and Saturday. She's located on the stairs opposite of Fuuka.",
+    "ranks": [
+        "Rank 1: Automatic after Chariot rank 3",
+        "Rank 2: What happened? > I agree > That's true",
+        "Rank 3: Not really > Anything > Let's go",
+        "Rank 4: Anything x2 > No worries > I'm honored",
+        "Rank 5: Anything > Do you know him? < It's up to you",
+        "Rank 6: Let's hope for the best",
+        "Rank 7: Are you relieved? > Sure",
+        "Rank 8: Anything > A boy/A girl",
+        "Rank 9: Forget about what? > An instructor",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For completing this social link you are able to fuse Siegfried through normal or triangle fusion"
+}

@@ -1,0 +1,18 @@
+{
+    "arcana": "Tower",
+    "name": "Mutatsu",
+    "description": "Mutatsu is available at nights in Club Escapade inside Paulownia Mall on Thursday-Sunday. To start this social link you have to serve customers in the club before you are allowed to see Mutatsu, then you must have LV.2 Courage. Tell the barkeep that the customers in order want a Bloody Mary > Margarita > Screwdriver > Oolong.",
+    "ranks": [
+        "Rank 1: Automatic",
+        "Rank 2: None of your business > I'm sorry, um?",
+        "Rank 3: I don't have any friends",
+        "Rank 4: Yeah that might look cool  ",
+        "Rank 5: I have enough > Yes",
+        "Rank 6: You should go home > What about the others?",
+        "Rank 7: I don't think you should",
+        "Rank 8: Dad? > I was with a friend/None of your business > Anything > Are you running away?",
+        "Rank 9: Anything x3",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For completing this social link you are able to fuse Chi You through normal or triangle fusion. "
+}

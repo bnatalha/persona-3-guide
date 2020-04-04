@@ -1,0 +1,18 @@
+{
+    "arcana": "Chariot",
+    "name": "Kazushi",
+    "description": "First available on April 23rd afterwards on Monday, Tuesday, Thursday and Friday. He's located in your classroom.",
+    "ranks": [
+        "Rank 1: Automatic",
+        "Rank 2: Say \"Toughen up\" > Anything x2",
+        "Rank 3: Say \"Are you sure you're okay?\" > Will it heal?",
+        "Rank 4: Anything > That sucks",
+        "Rank 5: Say \"The hospital again?\" > Let him use your shoulder",
+        "Rank 6: Say \"Suck it up\" > Is it that important? > What will happen to your knee?",
+        "Rank 7: Ask \"How's your knee?\" > You need to toughen up",
+        "Rank 8: Look away",
+        "Rank 9: Say \"I'm fine\"",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For completing this social link you're able to fuse Thor through Normal or Triangle fusion."
+}

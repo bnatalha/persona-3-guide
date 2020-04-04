@@ -1,0 +1,13 @@
+{
+    "arcana": "Death",
+    "name": "Pharos",
+    "description": "This is the second social link that will rank up with the story, and at 2 ranks at a time!",
+    "ranks": [
+        "Rank 1: Automatic on June 12",
+        "Rank 3: Automatic on July 12",
+        "Rank 5: Automatic on August 7",
+        "Rank 7: Automatic on October 6",
+        "Rank 10: Automatic on November 4"
+    ],
+    "unlocks": "For completing this social link you are able to fuse Thanatos though Hexagon fusion using Alice, Mot, Samael, Loa, Pale Rider and Ghoul."
+}

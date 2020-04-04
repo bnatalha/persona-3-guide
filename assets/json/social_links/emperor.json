@@ -1,0 +1,18 @@
+{
+    "arcana": "Emperor",
+    "name": "Hidetoshi",
+    "description": "After Mitsuru talks to you on April 27th you can go down to the staff room and tell Mrs. Toriumi and say you are interested then go to the student council room to start this social link. Available on Monday, Wednesday, Friday and Saturday. After January 25th Hidetoshi is available on all school days.",
+    "ranks": [
+        "Rank 1: Automatic",
+        "Rank 2: Say \"It's a waste of time\"",
+        "Rank 3: Say anything",
+        "Rank 4: Say anything > Good work",
+        "Rank 5: Say \"They can be pretty cruel\"",
+        "Rank 6: Say anything > But I just got here",
+        "Rank 7: Say \"He should suffer\"",
+        "Rank 8: Say anything > It wasn't me ",
+        "Rank 9: Say \"Don't blame yourself\"",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For completing this social link you can fuse Odin, who has the unique spell Thunder Reign, through normal or triangle fusion."
+}

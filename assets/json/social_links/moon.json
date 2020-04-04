@@ -1,0 +1,18 @@
+{
+    "arcana": "Moon",
+    "name": "Nozomi \"Gourmet King\"",
+    "description": "This social link requires LV.2 charm and you need to answer questions in this order Pheromone Coffee > Green > Hagakure Bowl, then give him an Odd Morsel from your inventory in order to be started. He's located at Paulownia Mall, Monday-Saturday.",
+    "ranks": [
+        "Rank 1: Automatic",
+        "Rank 2: Sure, okay",
+        "Rank 3: You are the Gourmet King",
+        "Rank 4: Oh, are you sick?",
+        "Rank 5: Yeah, that's right",
+        "Rank 6: Are you feeling sick?",
+        "Rank 7: Wiped off the face of ?? > Anything",
+        "Rank 8: Oh brother",
+        "Rank 9: Anything x2",
+        "Rank 10: Automatic"
+    ],
+    "unlocks": "For completing this social link you are able to fuse Sandalphon through Pentagon fusion using Garuda, Horus, Suzaku, Yatagarasu and Gurr."
+}
