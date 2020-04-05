@@ -63,18 +63,23 @@ class _SocialLinkDetailState extends State<SocialLinkDetail> {
                   ),
                   Container(
                     // color: Colors.black,
-                    padding: EdgeInsets.fromLTRB(8, 0, 8, 4),
-                    margin: EdgeInsets.only(top: 10),
+                    // padding: EdgeInsets.fromLTRB(8, 0, 8, 4),
+                    // margin: EdgeInsets.only(top: 10),
                     child: Column(
                       children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10, top: 20),
+                          child: RankView(ranks: widget.socialLink.ranks),
+                        ),
                         Container(
-                          height: 250,
+                          padding: EdgeInsets.fromLTRB(8, 0, 8, 4),
+                          margin: EdgeInsets.only(top: 10),
+                          height: 220,
                           child: TabbedInfo(
                             descriptionText: widget.socialLink.description,
                             unlockText: widget.socialLink.unlocks,
                           ),
                         ),
-                        buildRankContainer(),
                       ],
                     ),
                   ),
@@ -141,17 +146,128 @@ class _SocialLinkDetailState extends State<SocialLinkDetail> {
       ),
     );
   }
+}
 
-  Container buildRankContainer() {
+class RankView extends StatefulWidget {
+  final List<String> ranks;
+
+  const RankView({Key key, @required this.ranks}) : super(key: key);
+
+  @override
+  _RankViewState createState() => _RankViewState();
+}
+
+class _RankViewState extends State<RankView> {
+  ScrollController _controller;
+  @override
+  void initState() {
+    _controller = ScrollController();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context);
+    final itemExtent = mq.size.width;
+
     return Container(
-      height: 240,
-      margin: EdgeInsets.all(10),
-      alignment: Alignment.center,
-      child: ListView.builder(
-        itemCount: widget.socialLink.ranks.length,
-        itemBuilder: (_, index) => Text(
-          widget.socialLink.ranks[index],
-          style: buildTextStyle(size: 18),
+      height: 170,
+      color: Colors.black,
+      // margin: EdgeInsets.all(10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Container(
+              alignment: Alignment.centerLeft,
+              // color: Colors.black,
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              child: Text(
+                "Ranks".toUpperCase(),
+                style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white70,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Stack(
+              children: <Widget>[
+                ListView.builder(
+                  itemExtent: itemExtent,
+                  controller: _controller,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: widget.ranks.length,
+                  itemBuilder: (_, index) => Container(
+                    // width: mq.size.width,
+                    width: double.infinity,
+                    // width: 100,
+                    padding: const EdgeInsets.all(8),
+                    color: Colors.blue.shade200.withOpacity(0.4),
+                    // height: 50,
+                    alignment: Alignment.center,
+                    child: Text(widget.ranks[index],
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white60, fontSize: 18)),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    buildScrollButton(isLeft: true, itemExtent: itemExtent),
+                    buildScrollButton(itemExtent: itemExtent),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _scrollLeft(double itemExtent) {
+    _controller.animateTo(_controller.offset - itemExtent,
+        duration: Duration(milliseconds: 500), curve: Curves.ease);
+  }
+
+  _scrollRight(double itemExtent) {
+    _controller.animateTo(_controller.offset + itemExtent,
+        duration: Duration(milliseconds: 500), curve: Curves.ease);
+  }
+
+  Container buildScrollButton({bool isLeft, @required double itemExtent}) {
+    isLeft = isLeft ?? false;
+    return Container(
+      alignment: isLeft ? Alignment.centerLeft : Alignment.centerRight,
+      width: 100,
+      child: Opacity(
+        opacity: 0.15,
+        child: Container(
+          decoration: BoxDecoration(
+              // shape: BoxShape.circle,
+              color: Colors.black),
+          height: double.infinity,
+          child: IconButton(
+              splashColor: Colors.transparent,
+              enableFeedback: false,
+              icon: Icon(
+                isLeft ? Icons.arrow_back : Icons.arrow_forward,
+                size: 24,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                if (isLeft) {
+                  _scrollLeft(itemExtent);
+                } else {
+                  _scrollRight(itemExtent);
+                }
+              }),
         ),
       ),
     );
@@ -176,7 +292,7 @@ class _TabbedInfoState extends State<TabbedInfo>
   @override
   void initState() {
     super.initState();
-    _controller = TabController(length: 2, initialIndex: 1, vsync: this);
+    _controller = TabController(length: 2, initialIndex: 0, vsync: this);
   }
 
   @override
@@ -187,7 +303,8 @@ class _TabbedInfoState extends State<TabbedInfo>
           alignment: Alignment.center,
           // padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: Colors.black,
+            // color: Colors.black,
+            color: Colors.blue.shade400.withOpacity(0.2),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(10),
               topRight: Radius.circular(10),
@@ -195,7 +312,8 @@ class _TabbedInfoState extends State<TabbedInfo>
           ),
           child: TabBar(
             indicator: BoxDecoration(
-              color: Colors.blue.shade300.withOpacity(0.3),
+              color: Colors.black,
+              // color: Colors.blue.shade300.withOpacity(0.3),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),
@@ -203,31 +321,39 @@ class _TabbedInfoState extends State<TabbedInfo>
             ),
             controller: _controller,
             tabs: <Widget>[
-              Tab(child: buildTabButton(iconData: Icons.description, text: "Description")),
-              Tab(child: buildTabButton(iconData: Icons.lock_open, text: "Persona")),
+              Tab(
+                  child: buildTabButton(
+                      iconData: Icons.description, text: "Info")),
+              Tab(
+                  child: buildTabButton(
+                      iconData: Icons.card_giftcard, text: "Reward")),
             ],
           ),
         ),
         Expanded(
           child: InfoContainer(
+            bgcolor: Colors.black,
             child: TabBarView(
               controller: _controller,
               children: <Widget>[
-                Text(
-                  widget.descriptionText,
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(color: Colors.white54, fontSize: 14),
-                ),
-                Text(
-                  widget.unlockText,
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(color: Colors.white54, fontSize: 18),
-                ),
+                buildTabBarViewText(text: widget.descriptionText, size: 16),
+                buildTabBarViewText(text: widget.unlockText, size: 16),
               ],
             ),
           ),
         )
       ],
+    );
+  }
+
+  Widget buildTabBarViewText({String text, double size}) {
+    return Padding(
+      padding: const EdgeInsets.all(4),
+      child: Text(
+        text,
+        textAlign: TextAlign.justify,
+        style: TextStyle(color: Colors.white54, fontSize: size),
+      ),
     );
   }
 
@@ -249,11 +375,9 @@ class _TabbedInfoState extends State<TabbedInfo>
 
 class InfoContainer extends StatelessWidget {
   final Widget child;
+  final Color bgcolor;
 
-  const InfoContainer({
-    Key key,
-    @required this.child,
-  }) : super(key: key);
+  const InfoContainer({Key key, this.bgcolor, this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -261,7 +385,7 @@ class InfoContainer extends StatelessWidget {
       alignment: Alignment.center,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.white24,
+        color: bgcolor ?? Colors.white24,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10),
           bottomRight: Radius.circular(10),
