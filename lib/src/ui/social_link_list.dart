@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:p3_guide/src/bloc/bloc.dart';
 import 'package:p3_guide/src/ui/social_link_detail.dart';
 
 class SocialLinkList extends StatefulWidget {
@@ -8,6 +10,12 @@ class SocialLinkList extends StatefulWidget {
 
 class _SocialLinkListState extends State<SocialLinkList> {
   @override
+  void initState() {
+    bloc.add(SocialLinkFetch());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -15,48 +23,55 @@ class _SocialLinkListState extends State<SocialLinkList> {
           title: Text("Social Links"),
         ),
         body: Center(
-          child: InkResponse(
-            onTap: () {
-              print("tapped");
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => SocialLinkDetail()));
-            },
-            enableFeedback: true,
-            child: Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                Hero(
-                  tag: "sl_0",
-                  child: Image.asset(
-                    "assets/images/social_links/fool.jpg",
-                    fit: BoxFit.cover,
-                    height: 200,
-                  ),
-                ),
-                ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  child: Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      // shape: BoxShape.circle,
-                      color: Colors.white70,
+          child: BlocBuilder(
+            bloc: bloc,
+            builder: (ctx, state) {
+              if (state is SocialLinkUninitialized) {
+                return CircularProgressIndicator();
+              }
+              if (state is SocialLinkError) {
+                return Text("Houve um erro: ${state.msg}");
+              }
+              if (state is SocialLinkLoaded) {
+                final heroTagPref = "sl_";
+                return Container(
+                  padding: const EdgeInsets.all(4),
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: .8,
+                      crossAxisSpacing: 4,
+                      mainAxisSpacing: 4,
                     ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Fool",
-                      maxLines: 3,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic,
+                    itemCount: state.socialLinks.length,
+                    itemBuilder: (ctx, index) => InkResponse(
+                      onTap: () {
+                        print("tapped");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => SocialLinkDetail(
+                              socialLink: state.socialLinks[index],
+                              heroTag: "$heroTagPref${state.keys[index]}",
+                              assetKey: state.keys[index],
+                            ),
+                          ),
+                        );
+                      },
+                      enableFeedback: true,
+                      child: Hero(
+                        tag: "$heroTagPref${state.keys[index]}",
+                        child: Image.asset(
+                          "assets/images/social_links/${state.keys[index]}.jpg",
+                          fit: BoxFit.cover,
+                          height: 100,
+                        ),
                       ),
                     ),
                   ),
-                )
-              ],
-            ),
+                );
+              }
+            },
           ),
         ),
       ),

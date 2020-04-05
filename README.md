@@ -6,7 +6,7 @@ A guide for playing persona 3. App made for studying BLoC.
 
 ### Basic: 
 
-- [] Social Link
+- [] Social Link: fix order, scrollar a tab
 - [] Calendar
 - [] Fusion Calc
 - [] Elizabeth requests

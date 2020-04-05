@@ -7,6 +7,10 @@ class Persona3App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.black45,
+        appBarTheme: AppBarTheme(
+          color: Theme.of(context).primaryColor.withOpacity(0.35),
+        ),
         primarySwatch: Colors.blue,
         accentColor: Colors.yellow,
       ),
