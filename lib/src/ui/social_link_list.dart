@@ -39,9 +39,9 @@ class _SocialLinkListState extends State<SocialLinkList> {
                   child: GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: .8,
-                      crossAxisSpacing: 4,
-                      mainAxisSpacing: 4,
+                      childAspectRatio: .7,
+                      crossAxisSpacing: 8,
+                      mainAxisSpacing: 8,
                     ),
                     itemCount: state.socialLinks.length,
                     itemBuilder: (ctx, index) => InkResponse(
@@ -64,7 +64,7 @@ class _SocialLinkListState extends State<SocialLinkList> {
                         child: Image.asset(
                           "assets/images/social_links/${state.keys[index]}.jpg",
                           fit: BoxFit.cover,
-                          height: 100,
+                          // height: 100,
                         ),
                       ),
                     ),
