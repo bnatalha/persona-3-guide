@@ -9,8 +9,12 @@ A guide for playing persona 3. App made for studying BLoC.
 - [] Social Link: 
     + fix order and view of cards on grid,
     - scrollar vertical o texto da tabView,
-    - melhor scroll do rankView: colocar uma mini lista de quadrados do lado esquerdo do RANK;
+    - melhor scroll do rankView:
+        + colocar uma mini lista de quadrados do lado esquerdo do RANK;
+        - Só deixar animar/passar o rank quando animação acabar;
+        
 - [] Academic Quiz
+
 - [] Elizabeth requests
 - [] Gifts
 - [] Calendar
@@ -22,5 +26,9 @@ A guide for playing persona 3. App made for studying BLoC.
 
 #### Reference
 
-https://www.deviantart.com/enetirnel - Social Link cards art;
-https://sites.google.com/site/persona3fessociallink/ - Social link guide;
+https://www.deviantart.com/enetirnel 
+    - Social Link cards art;
+https://sites.google.com/site/persona3fessociallink/ 
+    - Social link guide;
+https://gamefaqs.gamespot.com/ps2/937269-shin-megami-tensei-persona-3-fes/faqs/52867 
+    - academic question guide

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:p3_guide/src/bloc/bloc.dart';
-import 'package:p3_guide/src/ui/social_link_detail.dart';
+import 'package:p3_guide/src/ui/main_drawer.dart';
+import 'package:p3_guide/src/ui/screens/social_link_detail/social_link_detail.dart';
 
 class SocialLinkList extends StatefulWidget {
+  static const String namedRoute = "/social-link-list";
   @override
   _SocialLinkListState createState() => _SocialLinkListState();
 }
@@ -19,9 +21,8 @@ class _SocialLinkListState extends State<SocialLinkList> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Social Links"),
-        ),
+        endDrawer: MainDrawer(),
+        drawerEdgeDragWidth: 40,
         body: Center(
           child: BlocBuilder(
             bloc: bloc,
@@ -35,11 +36,12 @@ class _SocialLinkListState extends State<SocialLinkList> {
               if (state is SocialLinkLoaded) {
                 final heroTagPref = "sl_";
                 return Container(
+                  decoration: BoxDecoration(boxShadow: kElevationToShadow[12]),
                   padding: const EdgeInsets.all(4),
                   child: GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: .7,
+                      childAspectRatio: .71,
                       crossAxisSpacing: 8,
                       mainAxisSpacing: 8,
                     ),
@@ -64,7 +66,6 @@ class _SocialLinkListState extends State<SocialLinkList> {
                         child: Image.asset(
                           "assets/images/social_links/${state.keys[index]}.jpg",
                           fit: BoxFit.cover,
-                          // height: 100,
                         ),
                       ),
                     ),
