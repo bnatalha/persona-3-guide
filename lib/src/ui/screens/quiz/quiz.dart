@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:p3_guide/src/bloc/bloc.dart';
 import 'package:p3_guide/src/models/quiz_answer_model.dart';
 import 'package:p3_guide/src/service_locator.dart';
-import 'package:p3_guide/src/ui/main_drawer.dart';
+import 'package:p3_guide/src/ui/components/main_drawer.dart';
 import 'package:p3_guide/src/utils/text_theme_utils.dart';
 
 class QuizAnswersScreen extends StatefulWidget {

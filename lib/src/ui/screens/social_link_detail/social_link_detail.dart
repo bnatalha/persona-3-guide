@@ -23,6 +23,108 @@ class _SocialLinkDetailState extends State<SocialLinkDetail> {
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
+    final isLandscape = mq.size.width > 600;
+
+    final arcanaCardBgBox = Container(
+      margin: EdgeInsets.only(top: 10),
+      height: 290,
+      alignment: Alignment.centerLeft,
+      width: mq.size.width * .75,
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor,
+        boxShadow: kElevationToShadow[6],
+      ),
+    );
+
+    final arcanaCard = Hero(
+      tag: widget.heroTag,
+      child: Container(
+        height: 270,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 6,
+              offset: Offset(-16, 0),
+            )
+          ],
+        ),
+        margin: const EdgeInsets.fromLTRB(4, 20, 4, 15),
+        child: Image.asset(
+          "assets/images/social_links/${widget.assetKey}.jpg",
+          fit: BoxFit.contain,
+        ),
+      ),
+    );
+
+    final basicInfoColumn = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15),
+          bottomLeft: Radius.circular(15),
+        ),
+        boxShadow: kElevationToShadow[3],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            widget.socialLink.arcana,
+            style: Theme.of(context).textTheme.title,
+          ),
+          Text(
+            widget.socialLink.name,
+            style: Theme.of(context).textTheme.subtitle,
+          ),
+        ],
+      ),
+    );
+
+    final arcanaCardHeader = Stack(
+      children: <Widget>[
+        arcanaCardBgBox,
+        Container(
+          alignment: Alignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Expanded(child: arcanaCard),
+              VerticalDivider(
+                width: isLandscape ? mq.size.width * 0.1 : mq.size.width * 0.02,
+              ),
+              Expanded(child: basicInfoColumn),
+            ],
+          ),
+        ),
+      ],
+    );
+
+    debugPrint("width: ${mq.size.width}");
+
+    final socialLinkInfo = Container(
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10, top: 20),
+            child: RankView(ranks: widget.socialLink.ranks),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 10),
+            height: 220,
+            child: TabbedInfo(
+              descriptionText: widget.socialLink.description,
+              unlockText: widget.socialLink.unlocks,
+              bgColor: Theme.of(context).primaryColor,
+              activeColor: Colors.black,
+            ),
+          ),
+        ],
+      ),
+    );
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -33,101 +135,13 @@ class _SocialLinkDetailState extends State<SocialLinkDetail> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Stack(
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.only(top: 10),
-                        height: 270,
-                        width: 300,
-                        alignment: Alignment.topRight,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
-                          boxShadow: kElevationToShadow[6],
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Expanded(
-                            child: buildArcanaCard(context),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Expanded(
-                            child: buildBasicInfoColumn(),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Container(
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10, top: 20),
-                          child: RankView(ranks: widget.socialLink.ranks),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10),
-                          height: 220,
-                          child: TabbedInfo(
-                            descriptionText: widget.socialLink.description,
-                            unlockText: widget.socialLink.unlocks,
-                            bgColor: Theme.of(context).primaryColor,
-                            activeColor: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  arcanaCardHeader,
+                  socialLinkInfo,
                 ],
               ),
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Hero buildArcanaCard(BuildContext context) {
-    return Hero(
-      tag: widget.heroTag,
-      child: Container(
-        child: Container(
-          decoration: BoxDecoration(boxShadow: kElevationToShadow[3]),
-          margin: const EdgeInsets.only(top: 20),
-          padding: EdgeInsets.only(left: 10, top: 10, bottom: 5),
-          child: Image.asset(
-            "assets/images/social_links/${widget.assetKey}.jpg",
-            fit: BoxFit.contain,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget buildBasicInfoColumn() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-      decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15),
-            bottomLeft: Radius.circular(15),
-          ),
-          boxShadow: kElevationToShadow[3]),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(widget.socialLink.arcana,
-              style: Theme.of(context).textTheme.title),
-          Text(
-            widget.socialLink.name,
-            style: Theme.of(context).textTheme.subtitle,
-          ),
-        ],
       ),
     );
   }

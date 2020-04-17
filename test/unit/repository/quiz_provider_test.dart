@@ -4,9 +4,9 @@ import 'package:p3_guide/src/repositories/quiz_provider.dart';
 main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group("QuizAnswer", () {
+  group("QuizProvider", () {
 
-    test('provider has to fetch', () async {
+    test('has to fetch successfully', () async {
       final p = QuizProvider();
       final subject = await p.fetchQuizAnswerBlocks();
 

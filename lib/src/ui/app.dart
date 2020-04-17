@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:p3_guide/src/ui/screens/quiz.dart';
-import 'package:p3_guide/src/ui/screens/social_link_list.dart';
+import 'package:p3_guide/src/ui/screens/quiz/quiz.dart';
+import 'package:p3_guide/src/ui/screens/social_link_list/social_link_list.dart';
 import 'package:p3_guide/src/ui/screens/test.dart';
 
 class Persona3App extends StatelessWidget {

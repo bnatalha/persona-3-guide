@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:p3_guide/src/bloc/bloc.dart';
 import 'package:p3_guide/src/service_locator.dart';
-import 'package:p3_guide/src/ui/main_drawer.dart';
+import 'package:p3_guide/src/ui/components/main_drawer.dart';
 import 'package:p3_guide/src/ui/screens/social_link_detail/social_link_detail.dart';
 
 class SocialLinkList extends StatefulWidget {

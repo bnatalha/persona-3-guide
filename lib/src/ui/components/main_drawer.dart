@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:p3_guide/src/ui/screens/quiz.dart';
-import 'package:p3_guide/src/ui/screens/social_link_list.dart';
+import 'package:p3_guide/src/ui/screens/quiz/quiz.dart';
+import 'package:p3_guide/src/ui/screens/social_link_list/social_link_list.dart';
 import 'package:p3_guide/src/utils/text_theme_utils.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -13,18 +13,11 @@ class MainDrawer extends StatelessWidget {
       child: Drawer(
         elevation: 0,
         child: Container(
-          // color: Theme.of(context).primaryColor,
           color: Colors.transparent,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              // Expanded(
-              //   child: Container(
-              //     height: 200,
-              //     color: Colors.transparent,
-              //   ),
-              // ),
               buildMenuItem(
                 context: context,
                 iconData: Icons.link,
@@ -61,7 +54,7 @@ class MainDrawer extends StatelessWidget {
               //   rotate: true,
               //   iconData: Icons.card_giftcard,
               //   onTap: () {},
-              //   title: "QUESTS",
+              //   title: "GIFTS",
               // ),
               // Expanded(
               //   child: Container(
