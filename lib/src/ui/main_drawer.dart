@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:p3_guide/src/ui/screens/questinoaries.dart';
+import 'package:p3_guide/src/ui/screens/quiz.dart';
 import 'package:p3_guide/src/ui/screens/social_link_list.dart';
 import 'package:p3_guide/src/utils/text_theme_utils.dart';
 
@@ -43,9 +43,9 @@ class MainDrawer extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).pop();
                   Navigator.of(context)
-                      .pushReplacementNamed(QuestionariesScreen.namedRoute);
+                      .pushReplacementNamed(QuizAnswersScreen.namedRoute);
                 },
-                title: "QUESTIONARIES",
+                title: "QUIZ ANSWERS",
               ),
               // buildDivider(),
               // buildMenuItem(

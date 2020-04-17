@@ -1,3 +1,2 @@
-export 'social_links_event.dart';
-export 'social_links_state.dart';
-export 'social_links_bloc.dart';
+export 'package:p3_guide/src/bloc/quiz_answer_bloc/quiz_answer_bloc.dart';
+export 'package:p3_guide/src/bloc/social_links_bloc/social_links_bloc.dart';

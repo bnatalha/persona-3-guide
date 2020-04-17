@@ -1,3 +1,5 @@
+final quizStringMock = 
+'''
 [
   {
     "monthNumber": 4,
@@ -178,7 +180,7 @@
         ]
       },
       {
-        "occursOn": "10/13 - 17",
+        "occursOn": "10/13 - 17 : *3rd Exam*",
         "answers": [
           "Husbands",
           "Pythagoras",
@@ -236,7 +238,7 @@
     ]
   },
   {
-    "monthNumber": 12,
+    "monthNumber": 9,
     "quizList": [
       {
         "occursOn": "12/7",
@@ -251,7 +253,7 @@
         ]
       },
       {
-        "occursOn": "12/14 - 19",
+        "occursOn": "12/14 - 19 : *4th Exam*",
         "answers": [
           "1185",
           "Oxygen",
@@ -275,7 +277,7 @@
     ]
   },
   {
-    "monthNumber": 1,
+    "monthNumber": 9,
     "quizList": [
       {
         "occursOn": "1/8",
@@ -292,3 +294,4 @@
     ]
   }
 ]
+''';

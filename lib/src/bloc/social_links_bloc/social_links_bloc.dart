@@ -1,8 +1,11 @@
 import 'package:bloc/bloc.dart';
-import 'package:p3_guide/src/bloc/social_links_event.dart';
-import 'package:p3_guide/src/bloc/social_links_state.dart';
-import 'package:p3_guide/src/data/repository.dart';
+import 'package:p3_guide/src/bloc/social_links_bloc/social_links_event.dart';
+import 'package:p3_guide/src/bloc/social_links_bloc/social_links_state.dart';
 import 'package:p3_guide/src/models/social_link_model.dart';
+import 'package:p3_guide/src/repositories/repository.dart';
+
+export 'package:p3_guide/src/bloc/social_links_bloc/social_links_state.dart';
+export 'package:p3_guide/src/bloc/social_links_bloc/social_links_event.dart';
 
 class SocialLinkBloc extends Bloc<SocialLinkEvent, SocialLinkState> {
   final Repository _repository = Repository();
@@ -12,7 +15,7 @@ class SocialLinkBloc extends Bloc<SocialLinkEvent, SocialLinkState> {
   @override
   Stream<SocialLinkState> mapEventToState(SocialLinkEvent event) async* {
     try {
-      if (state.runtimeType == SocialLinkUninitialized) {
+      if (state is SocialLinkUninitialized) {
         final socialLinks = await _fetchSocialLinks();
         final keys = _fetchSocialLinksKeys();
         yield SocialLinkLoaded(socialLinks: socialLinks, keys: keys);

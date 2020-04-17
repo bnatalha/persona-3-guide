@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:p3_guide/src/ui/screens/questinoaries.dart';
+import 'package:p3_guide/src/ui/screens/quiz.dart';
 import 'package:p3_guide/src/ui/screens/social_link_list.dart';
 import 'package:p3_guide/src/ui/screens/test.dart';
 
@@ -38,8 +38,8 @@ class Persona3App extends StatelessWidget {
       ),
       title: "Persona 3 Guide",
       routes: {
-        QuestionariesScreen.namedRoute: (_) => QuestionariesScreen(),
-        QuestionariesScreen.namedRoute: (_) => QuestionariesScreen(),
+        QuizAnswersScreen.namedRoute: (_) => QuizAnswersScreen(),
+        SocialLinkList.namedRoute: (_) => SocialLinkList(),
       },
       home: SocialLinkList(),
       // home: TestScreen(),
