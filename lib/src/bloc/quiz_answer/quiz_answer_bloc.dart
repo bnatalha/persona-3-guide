@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
-import 'package:p3_guide/src/bloc/quiz_answer_bloc/quiz_answer_event.dart';
-import 'package:p3_guide/src/bloc/quiz_answer_bloc/quiz_answer_state.dart';
+import 'package:p3_guide/src/bloc/quiz_answer/quiz_answer_event.dart';
+import 'package:p3_guide/src/bloc/quiz_answer/quiz_answer_state.dart';
 import 'package:p3_guide/src/models/quiz_answer_model.dart';
 import 'package:p3_guide/src/repositories/repository.dart';
 
-export 'package:p3_guide/src/bloc/quiz_answer_bloc/quiz_answer_event.dart';
-export 'package:p3_guide/src/bloc/quiz_answer_bloc/quiz_answer_state.dart';
+export 'package:p3_guide/src/bloc/quiz_answer/quiz_answer_event.dart';
+export 'package:p3_guide/src/bloc/quiz_answer/quiz_answer_state.dart';
 
 class QuizAnswerBloc extends Bloc<QuizAnswerEvent, QuizAnswerState> {
   final _repository = Repository();

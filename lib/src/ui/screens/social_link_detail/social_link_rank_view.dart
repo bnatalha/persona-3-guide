@@ -1,87 +1,44 @@
-import 'dart:async';
-
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:rxdart/rxdart.dart';
-
-class RankIndexEvent extends Equatable {
-  final int currentIndex;
-  const RankIndexEvent(this.currentIndex);
-
-  @override
-  // TODO: implement props
-  List<Object> get props => [currentIndex];
-}
-
-class RankIndexEventInitial extends RankIndexEvent {
-  const RankIndexEventInitial() : super(0);
-}
-
-class RankIndexEventFoward extends RankIndexEvent {
-  const RankIndexEventFoward(int currentIndex) : super(currentIndex);
-}
-
-class RankIndexEventReverse extends RankIndexEvent {
-  const RankIndexEventReverse(int currentIndex) : super(currentIndex);
-}
+import 'package:p3_guide/src/bloc/bloc.dart';
 
 class RankView extends StatefulWidget {
-  final List<String> ranks;
+  // final SLinkDetailBloc bloc = GetIt.I.get<SLinkDetailBloc>();
+  final SLinkDetailBloc bloc;
 
-  const RankView({Key key, @required this.ranks}) : super(key: key);
+  const RankView({Key key, @required this.bloc}) : super(key: key);
 
   @override
-  _RankViewState createState() => _RankViewState();
+  _RankViewState createState() => _RankViewState(bloc);
 }
 
-// class _RankViewState extends State<RankView> {
 class _RankViewState extends State<RankView>
     with SingleTickerProviderStateMixin {
-  bool isInit = true;
-  ScrollController _textController;
-  BehaviorSubject _scrollSubject;
-  int _listIndex;
-
+  final SLinkDetailBloc bloc;
   final Duration _scrollDuration = Duration(milliseconds: 200);
-  // final Duration _scrollDuration = Duration(seconds: 2);
+  ScrollController _textScrollController;
+
+  _RankViewState(this.bloc);
 
   @override
   void initState() {
-    _listIndex = 0;
-    _textController = ScrollController();
-    _scrollSubject = BehaviorSubject<RankIndexEvent>();
+    _textScrollController = ScrollController();
+    bloc.rankCtrl
+        .listen((rankEvent) => _scrollHorizontalRankTextList(rankEvent));
 
-    _scrollSubject.listen((data) => _scrollList(data));
     super.initState();
   }
 
   @override
-  void didChangeDependencies() {
-    if (isInit) {
-      // _animation = Tween<Color>(
-      //   // begin: Colors.blue.shade900,
-      //   begin: Colors.black,
-      //   end: Colors.blue,
-      //   // end: Theme.of(context).accentColor,
-      // ).animate(_animationController);
-      isInit = false;
-    }
-    isInit = false;
-
-    super.didChangeDependencies();
-  }
-
-  @override
   void dispose() {
-    _textController.dispose();
-    _scrollSubject.close();
+    _textScrollController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
-    final itemExtent = mq.size.width;
+    bloc.itemExtent = mq.size.width;
+    final itemExtent = bloc.itemExtent;
 
     return Container(
       height: 170,
@@ -114,21 +71,17 @@ class _RankViewState extends State<RankView>
                   flex: 8,
                   child: Container(
                     alignment: Alignment.center,
-                    // color: Theme.of(context).primaryColor,
-                    // color: Theme.of(context).primaryColor,
                     padding: const EdgeInsets.fromLTRB(8, 10, 8, 10),
                     child: ListView.builder(
                       physics: NeverScrollableScrollPhysics(),
-                      // itemExtent: 18,
-                      // controller: _squareController,
                       scrollDirection: Axis.horizontal,
-                      itemCount: widget.ranks.length,
+                      itemCount: bloc.ranks.length,
                       itemBuilder: (context, index) => RankSquare(
                         duration: _scrollDuration,
-                        scrollSubject: _scrollSubject,
                         index: index,
                         beginColor: Theme.of(context).primaryColor,
                         endColor: Theme.of(context).accentColor,
+                        bloc: bloc,
                       ),
                     ),
                   ),
@@ -143,16 +96,16 @@ class _RankViewState extends State<RankView>
                 ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   itemExtent: itemExtent,
-                  controller: _textController,
+                  controller: _textScrollController,
                   scrollDirection: Axis.horizontal,
-                  itemCount: widget.ranks.length,
+                  itemCount: bloc.ranks.length,
                   itemBuilder: (_, index) => Container(
                     width: double.infinity,
                     padding: const EdgeInsets.all(8),
                     color: Theme.of(context).primaryColor,
                     alignment: Alignment.center,
                     child: Text(
-                      widget.ranks[index],
+                      bloc.ranks[index],
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -170,20 +123,6 @@ class _RankViewState extends State<RankView>
         ],
       ),
     );
-  }
-
-  _scrollList(dynamic rankEvent) async {
-    double itemExtent = MediaQuery.of(context).size.width;
-    if (rankEvent is RankIndexEventReverse) {
-      itemExtent = -itemExtent;
-    }
-
-    if (!(rankEvent is RankIndexEventInitial)) {
-      // var completer = new Completer<Null>();
-      await _textController.animateTo(_textController.offset + itemExtent,
-          duration: _scrollDuration, curve: Curves.ease);
-      // print("controller.offset ${_textController.offset}");
-    }
   }
 
   Container buildScrollButton({bool isLeft, @required double itemExtent}) {
@@ -205,12 +144,12 @@ class _RankViewState extends State<RankView>
               color: Colors.white,
             ),
             onPressed: () {
-              if (isLeft && _listIndex > 0) {
-                _listIndex--;
-                _scrollSubject.sink.add((RankIndexEventReverse(_listIndex)));
-              } else if (!isLeft && _listIndex < widget.ranks.length - 1) {
-                _listIndex++;
-                _scrollSubject.sink.add((RankIndexEventFoward(_listIndex)));
+              if (isLeft && bloc.currentIndex > 0) {
+                bloc.currentIndex--;
+                bloc.pushIndexEvent(RankIndexEventPrevious());
+              } else if (!isLeft && bloc.currentIndex < bloc.ranks.length - 1) {
+                bloc.currentIndex++;
+                bloc.pushIndexEvent(RankIndexEventNext());
               }
             },
           ),
@@ -218,31 +157,47 @@ class _RankViewState extends State<RankView>
       ),
     );
   }
+
+  _scrollHorizontalRankTextList(RankIndexEvent rankEvent) async {
+    var offset = bloc.itemExtent;
+    if (rankEvent is RankIndexEventPrevious) {
+      offset = -offset;
+    }
+
+    await _textScrollController.animateTo(offset,
+        duration: _scrollDuration, curve: Curves.ease);
+
+    // if (!(rankEvent is RankIndexEvent)) {
+    //   await controller.animateTo(controller.offset + itemExtent,
+    //       duration: _scrollDuration, curve: Curves.ease);
+    // }
+  }
 }
 
 class RankSquare extends StatefulWidget {
   RankSquare({
     Key key,
-    @required BehaviorSubject scrollSubject,
     @required this.index,
     @required this.duration,
     @required this.beginColor,
     @required this.endColor,
-  })  : scrollSubject = scrollSubject,
-        super(key: key);
+    @required this.bloc,
+  }) : super(key: key);
 
-  final BehaviorSubject scrollSubject;
   final int index;
   final Duration duration;
   final Color beginColor;
   final Color endColor;
+  final SLinkDetailBloc bloc;
 
   @override
-  _RankSquareState createState() => _RankSquareState(beginColor, endColor);
+  _RankSquareState createState() =>
+      _RankSquareState(beginColor, endColor, bloc);
 }
 
 class _RankSquareState extends State<RankSquare>
     with SingleTickerProviderStateMixin {
+  final SLinkDetailBloc bloc;
   AnimationController _animationController;
   Animation<Color> animation;
   bool isInit = true;
@@ -250,7 +205,7 @@ class _RankSquareState extends State<RankSquare>
   final Color beginColor;
   final Color endColor;
 
-  _RankSquareState(this.beginColor, this.endColor);
+  _RankSquareState(this.beginColor, this.endColor, this.bloc);
 
   @override
   void initState() {
@@ -262,14 +217,19 @@ class _RankSquareState extends State<RankSquare>
     _animationController.addStatusListener((status) {
       print("${widget.index}: $status");
     });
+
+    if(widget.index == 0) {
+      inByLeft();
+    }
+    
     super.initState();
   }
 
   @override
   void didChangeDependencies() {
     if (isInit) {
-      widget.scrollSubject.listen((offsetValue) => _animate(offsetValue));
-      widget.scrollSubject.sink.add(RankIndexEventInitial());
+      bloc.rankCtrl.listen((rankEvent) => _animate(rankEvent));
+      // bloc.pushIndexEvent(RankIndexEventNext());
       isInit = false;
     }
     super.didChangeDependencies();
@@ -284,39 +244,38 @@ class _RankSquareState extends State<RankSquare>
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 20,
-        margin: const EdgeInsets.fromLTRB(0, 8, 8, 4),
-        color: Colors.blue.shade900,
+      width: 20,
+      margin: const EdgeInsets.fromLTRB(0, 8, 8, 4),
+      color: Colors.blue.shade900,
+      child: GestureDetector(
+        onTap: () {},
         child: AnimatedRankSquare(
           controller: animation,
-        ));
+        ),
+      ),
+    );
   }
 
-  _animate(dynamic rankEvent) {
-    if (rankEvent is RankIndexEventFoward) {
-      if (rankEvent.currentIndex - 1 == widget.index) {
+  _animate(RankIndexEvent rankEvent) {
+    if (rankEvent is RankIndexEventNext) {
+      if (bloc.currentIndex - 1 == widget.index) {
         return outByRight();
       }
-      if (rankEvent.currentIndex == widget.index) {
+      if (bloc.currentIndex == widget.index) {
         return inByLeft();
       }
-    } else if (rankEvent is RankIndexEventReverse) {
-      if (rankEvent.currentIndex + 1 == widget.index) {
+    } else if (rankEvent is RankIndexEventPrevious) {
+      if (bloc.currentIndex + 1 == widget.index) {
         return outByLeft();
       }
-      if (rankEvent.currentIndex == widget.index) {
+      if (bloc.currentIndex == widget.index) {
         return inByRight();
       }
-    } else if (rankEvent is RankIndexEventInitial &&
-        rankEvent.currentIndex == widget.index) {
+    } else if (rankEvent is RankIndexEventNext &&
+        bloc.currentIndex == widget.index) {
       return inByRight();
     }
   }
-
-  // Container inByLeft() => Container(color: Colors.amber);
-  // Container outByRight() => Container(color: Colors.blue, child: Text('>'));
-  // Container inByRight() => Container(color: Colors.amber);
-  // Container outByLeft() => Container(color: Colors.blue, child: Text("<"));
 
   inByLeft() {
     print('iLeft');

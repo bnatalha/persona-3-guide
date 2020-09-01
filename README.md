@@ -24,7 +24,11 @@ A guide for playing persona 3. App made for studying BLoC.
 
 - [] Social Link: show requirements filtered by status, first avaliable date, among others;
 
-#### Reference
+## Questions
+
+- Quando registo um bloc por factory ocm o getit e chamo uma instancia dele no widget, quando este widget chama dispose, oq ocorre com o objeto bloc?
+
+## Reference
 
 https://www.deviantart.com/enetirnel 
     - Social Link cards art;

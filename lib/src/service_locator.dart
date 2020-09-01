@@ -5,6 +5,8 @@ import 'bloc/bloc.dart';
 final serviceLocator = GetIt.instance;
 
 setUpServiceLocator() {
-  serviceLocator.registerSingleton(QuizAnswerBloc());
-  serviceLocator.registerSingleton(SocialLinkBloc());
+  serviceLocator.registerLazySingleton(() => QuizAnswerBloc());
+  serviceLocator.registerLazySingleton(() => SocialLinkBloc());
+  serviceLocator.registerFactoryParam<SLinkDetailBloc, List<String>, void>(
+      (r, _) => SLinkDetailBloc(r, 0));
 }

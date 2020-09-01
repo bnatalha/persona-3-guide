@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:p3_guide/src/bloc/social_link_detail/slink_detail_bloc.dart';
 import 'package:p3_guide/src/models/social_link_model.dart';
 import 'package:p3_guide/src/ui/screens/social_link_detail/social_link_rank_view.dart';
 import 'package:p3_guide/src/ui/screens/social_link_detail/social_link_tabbed_info_view.dart';
@@ -23,7 +24,6 @@ class _SocialLinkDetailState extends State<SocialLinkDetail> {
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
-    final isLandscape = mq.size.width > 600;
 
     final arcanaCardBgBox = Container(
       margin: EdgeInsets.only(top: 10),
@@ -65,7 +65,7 @@ class _SocialLinkDetailState extends State<SocialLinkDetail> {
           topLeft: Radius.circular(15),
           bottomLeft: Radius.circular(15),
         ),
-        boxShadow: kElevationToShadow[3],
+        boxShadow: kElevationToShadow[6],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -93,7 +93,7 @@ class _SocialLinkDetailState extends State<SocialLinkDetail> {
             children: <Widget>[
               Expanded(child: arcanaCard),
               VerticalDivider(
-                width: isLandscape ? mq.size.width * 0.1 : mq.size.width * 0.02,
+                width: mq.size.width * 0.02,
               ),
               Expanded(child: basicInfoColumn),
             ],
@@ -109,7 +109,7 @@ class _SocialLinkDetailState extends State<SocialLinkDetail> {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(bottom: 10, top: 20),
-            child: RankView(ranks: widget.socialLink.ranks),
+            child: RankView(bloc: SLinkDetailBloc(widget.socialLink.ranks, 0)),
           ),
           Container(
             margin: EdgeInsets.only(top: 10),
