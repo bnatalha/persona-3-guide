@@ -7,12 +7,12 @@ A guide for playing Persona 3 for ps2. Just a project I started to improve my fl
 ### Basic: 
 
 - [] Social Link: 
-    [x] fix order and view of cards on grid,
-    [] tabView text Vertical Scroll;
+    - [x] fix order and view of cards on grid,
+    - [] tabView text Vertical Scroll;
     - upgrade rankView scroll:
-        [x] Put a tiny list of squares besides the name RANK that responds to the scrolling action;
-        [] Only let the rank text be scrolled if there is currently no animation for scrolling happening;
-        [] Save current selected rank;
+        - [x] Put a tiny list of squares besides the name RANK that responds to the scrolling action;
+        - [] Only let the rank text be scrolled if there is currently no animation for scrolling happening;
+        - [] Save current selected rank;
         
 - [x] Academic Quiz
 
