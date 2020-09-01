@@ -1,0 +1,4 @@
+rankView
+disabled user scroll
+better animation
+button only works after animation is done
