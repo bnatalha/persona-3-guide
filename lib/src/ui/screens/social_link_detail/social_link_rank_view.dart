@@ -159,18 +159,10 @@ class _RankViewState extends State<RankView>
   }
 
   _scrollHorizontalRankTextList(RankIndexEvent rankEvent) async {
-    var offset = bloc.itemExtent;
-    if (rankEvent is RankIndexEventPrevious) {
-      offset = -offset;
-    }
+    var offset = bloc.itemExtent * (bloc.currentIndex);
 
     await _textScrollController.animateTo(offset,
         duration: _scrollDuration, curve: Curves.ease);
-
-    // if (!(rankEvent is RankIndexEvent)) {
-    //   await controller.animateTo(controller.offset + itemExtent,
-    //       duration: _scrollDuration, curve: Curves.ease);
-    // }
   }
 }
 
@@ -218,10 +210,10 @@ class _RankSquareState extends State<RankSquare>
       print("${widget.index}: $status");
     });
 
-    if(widget.index == 0) {
+    if (widget.index == 0) {
       inByLeft();
     }
-    
+
     super.initState();
   }
 
@@ -229,7 +221,6 @@ class _RankSquareState extends State<RankSquare>
   void didChangeDependencies() {
     if (isInit) {
       bloc.rankCtrl.listen((rankEvent) => _animate(rankEvent));
-      // bloc.pushIndexEvent(RankIndexEventNext());
       isInit = false;
     }
     super.didChangeDependencies();
