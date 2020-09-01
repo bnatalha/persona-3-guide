@@ -2,6 +2,12 @@
 
 A guide for playing Persona 3 for ps2. Just a project I started to improve my flutter skills (and someday finally finish persona 3 haha).
 
+Currently featuring a Social Link guide,
+![](img/sl.gif)
+
+and the Academic Quiz Guide.
+![](img/quiz.gif)
+
 ## TODO
 
 ### Basic: 
