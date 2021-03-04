@@ -1,6 +1,6 @@
 # p3_guide
 
-A guide for playing Persona 3 for ps2. Just a project I started to improve my flutter skills (and someday finally finish persona 3 haha).
+A guide for playing Persona 3 for ps2. Just a project I started in order to improve my flutter skills (and someday finally finish persona 3 haha).
 
 Currently featuring a Social Link guide,
 ![](img/sl.gif)
